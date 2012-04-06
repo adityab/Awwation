@@ -42,7 +42,7 @@
 					opacity: 1
 				},
 				initStroke: {
-					width: 5,
+					width: 10,
 					color: '007FFF',  // transparent blue stroke
 					opacity: 0.8
 				},
