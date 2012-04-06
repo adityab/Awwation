@@ -69,13 +69,36 @@
             Awwation
             </a>
            <ul class = "nav">
-                <li class = "dropdown">
+                <li class = "btn-group" data-toggle = "buttons-radio">
+                        <button class = "btn" id = "tool_select"></button>
+                        <button class = "btn" id = "tool_pan"><img width = "24" height = "24" src = "images/pan.png"></img></button>
+                </li>
+                
+                <li class = "btn-group" data-toggle = "buttons-radio">
+                        <button class = "btn" id = "tool_text"></button>
+                        <button class = "btn" id = "tool_rect"></button>
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class = "dropdown-menu">
+                            <li> <a href = "#" id = "tool_fhpath">Freehand</a> </li>
+                            <li> <a href = "#" id = "tool_line">Line</a> </li>
+                            <li> <a href = "#" id = "tool_rect">Rectangle</a> </li>
+                            <li> <a href = "#" id = "tool_ellipse">Ellipse</a> </li>
+                            <li> <a href = "#" id = "tool_path">Path</a> </li>
+                        </ul>
+                </li>
+                <li class = "btn-group" data-toggle = "buttons-radio">
+                    <button class = "btn" id = "tool_image"></button>
+                    <button class = "btn" id = "tool_video">Video</button>
+                </li>
+                
+                <!--li class = "dropdown">
                     <a class = "dropdown-toggle" data-toggle = "dropdown" href = "#">
                         Shapes
                         <b class = "caret"></b>
                     </a>
                     <ul class = "dropdown-menu">
-                        <li> <a href = "#" id = "tool_select">Pointer</a> </li>
                         <li> <a href = "#" id = "tool_fhpath">Freehand</a> </li>
                         <li> <a href = "#" id = "tool_line">Line</a> </li>
                         <li> <a href = "#" id = "tool_rect">Rectangle</a> </li>
@@ -84,11 +107,12 @@
                         <li> <a href = "#" id = "tool_text">Text</a> </li>
                         <li> <a href = "#" id = "tool_image">Image</a> </li>
                     </ul>
-                </li>
+                </li-->
            </ul>
         </div>
     </div>
 </div>
+
 
 <div id="svg_editor">
 
