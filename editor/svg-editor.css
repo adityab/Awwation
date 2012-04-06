@@ -1418,4 +1418,5 @@ span.zoom_tool {
 */
 
 #tools_left, #tools_bottom {
+    display: none;
 }
