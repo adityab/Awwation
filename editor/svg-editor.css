@@ -1416,3 +1416,6 @@ span.zoom_tool {
 .contextMenu LI.delete A { background-image: url(images/page_white_delete.png); }
 .contextMenu LI.quit A { background-image: url(images/door.png); }
 */
+
+#tools_left, #tools_bottom {
+}
