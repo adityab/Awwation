@@ -1420,3 +1420,11 @@ span.zoom_tool {
 #tools_left, #tools_bottom {
     display: none;
 }
+
+#svg_editor #bar_bottom {
+    margin-left: 45%;
+    margin-right: 45%;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+}

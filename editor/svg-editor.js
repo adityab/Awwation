@@ -2016,7 +2016,7 @@
 				var last_x = null, last_y = null, w_area = workarea[0], 
 					panning = false, keypan = false;
 				
-                var zoomWithFactor = function() {
+                var zoomWithFactor = function(factor) {
                     var zoomFactor = svgCanvas.getZoom() * factor;
                     var w_area = workarea;
                     zoomChanged(window, {
@@ -2063,7 +2063,14 @@
                     
                     zoomWithFactor(factor);
                 });
-
+                
+                // Zoom in and Zoom out button handlers
+                $('#zoom-out').click(function() {
+                    zoomWithFactor(1/1.3);
+                });
+                $('#zoom-in').click(function() {
+                    zoomWithFactor(1.3);
+                });
 
 				$(window).mouseup(function() {
 					panning = false;
