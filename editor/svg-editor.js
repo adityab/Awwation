@@ -2016,6 +2016,18 @@
 				var last_x = null, last_y = null, w_area = workarea[0], 
 					panning = false, keypan = false;
 				
+                var zoomWithFactor = function() {
+                    var zoomFactor = svgCanvas.getZoom() * factor;
+                    var w_area = workarea;
+                    zoomChanged(window, {
+                        width: 0,
+                        height: 0,
+                        x: (w_area[0].scrollLeft + w_area.width()/2) / zoomFactor,
+                        y: (w_area[0].scrollTop + w_area.height()/2) / zoomFactor,
+                        zoom: zoomFactor
+                    }, true);
+                }
+
 				$('#svgcanvas').bind('mousemove mouseup', function(evt) {
 					if(panning === false) return;
 
@@ -2048,16 +2060,8 @@
                         if(e.detail > 0)        factor = 1.1;
                         else if(e.detail < 0)   factor = 1/1.1;
                     }
-
-                    var zoomFactor = svgCanvas.getZoom() * factor;
-                    var w_area = workarea;
-                    zoomChanged(window, {
-                        width: 0,
-                        height: 0,
-                        x: (w_area[0].scrollLeft + w_area.width()/2) / zoomFactor,
-                        y: (w_area[0].scrollTop + w_area.height()/2) / zoomFactor,
-                        zoom: zoomFactor
-                    }, true);
+                    
+                    zoomWithFactor(factor);
                 });
 
 
