@@ -2596,7 +2596,8 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 						"width": 0,
 						"height": 0,
 						"id": getNextId(),
-						"opacity": cur_shape.opacity / 2
+						"opacity": cur_shape.opacity / 2,
+                        "fill": "none"
 					}
 				});
 				break;
@@ -2634,7 +2635,8 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 						"cy": y,
 						"r": 0,
 						"id": getNextId(),
-						"opacity": cur_shape.opacity / 2
+						"opacity": cur_shape.opacity / 2,
+                        "fill": "none"
 					}
 				});
 				break;
@@ -2649,7 +2651,8 @@ var getMouseTarget = this.getMouseTarget = function(evt) {
 						"rx": 0,
 						"ry": 0,
 						"id": getNextId(),
-						"opacity": cur_shape.opacity / 2
+						"opacity": cur_shape.opacity / 2,
+                        "fill": "none"
 					}
 				});
 				break;
