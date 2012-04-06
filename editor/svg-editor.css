@@ -59,8 +59,9 @@ html, body, div{
 	background-color: #A0A0A0;
 	text-align: center;
 	vertical-align: middle;
-	width: 640px;
-	height: 480px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 	-apple-dashboard-region:dashboard-region(control rectangle 0px 0px 0px 0px); /* for widget regions that shouldn't react to dragging */
 	position: relative;
 	/* 
@@ -199,13 +200,10 @@ html, body, div{
 #svg_editor div#workarea {
 	display: inline-table-cell;
 	position:absolute;
-	top: 75px;
-	left: 40px;
-	bottom: 62px;
-	right: 14px;
+    width: 100%;
+    height: 100%;
 	background-color: #A0A0A0;
-	border: 1px solid #808080;
-	overflow: auto;
+	overflow: hidden;
 	text-align: center;
 }
 
@@ -424,7 +422,7 @@ html, body, div{
 	z-index: 2;
 }
 
-#svg_editor #main_menu {
+/*#svg_editor #main_menu {
 	z-index: 12;
 	background: #E8E8E8;
 	position: relative;
@@ -447,7 +445,7 @@ html, body, div{
 }
 
 #svg_editor #main_menu li {
-/*	height: 35px;*/
+/*	height: 35px;
 	line-height: 22px;
 	padding-top: 7px;
 	padding-left: 7px;
@@ -468,6 +466,7 @@ html, body, div{
 #svg_editor #main_menu p {
 	margin-top: 5px;
 }
+*/
 
 #svg_editor #logo img {
 	border: 0;
