@@ -6741,6 +6741,11 @@ this.setMode = function(name) {
 	textActions.clear();
 	cur_properties = (selectedElements[0] && selectedElements[0].nodeName == 'text') ? cur_text : cur_shape;
 	current_mode = name;
+
+    if(current_mode == 'pan')
+        $('#svgcanvas').css({'cursor': 'move'});
+    else
+        $('#svgcanvas').css({'cursor': 'auto'});
 };
 
 // Group: Element Styling

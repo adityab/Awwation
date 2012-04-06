@@ -300,6 +300,7 @@
 					'redo':'redo.png',
 					
 					'select':'select.png',
+					'pan':'pan.png',
 					'select_node':'select_node.png',
 					'pencil':'fhpath.png',
 					'pen':'line.png',
@@ -358,6 +359,7 @@
 					'#tool_redo':'redo',
 					
 					'#tool_select':'select',
+					'#tool_pan':'pan',
 					'#tool_fhpath':'pencil',
 					'#tool_line':'pen',
 					'#tool_rect,#tools_rect_show':'rect',
@@ -2040,7 +2042,7 @@
 					if(evt.type === 'mouseup') panning = false;
 					return false;
 				}).mousedown(function(evt) {
-					if(evt.button === 1 || keypan === true) {
+					if(evt.button === 1 || keypan === true || svgCanvas.getMode() == 'pan') {
 						panning = true;
 						last_x = evt.clientX;
 						last_y = evt.clientY;
@@ -2415,6 +2417,13 @@
 					$('#styleoverrides').text('#svgcanvas svg *{cursor:move;pointer-events:all}, #svgcanvas svg{cursor:default}');
 				}
 			};
+
+            var clickPan = function() {
+                if(toolButtonClick('#tool_pan')) {
+                    svgCanvas.setMode('pan');
+                    keypan = true;
+                }
+            }
 		
 			var clickFHPath = function() {
 				if (toolButtonClick('#tool_fhpath')) {
@@ -4031,6 +4040,7 @@
 				// sel:'selector', fn:function, evt:'event', key:[key, preventDefault, NoDisableInInput]
 				var tool_buttons = [
 					{sel:'#tool_select', fn: clickSelect, evt: 'click', key: ['V', true]},
+                    {sel:'#tool_pan', fn: clickPan, evt: 'click'},
 					{sel:'#tool_fhpath', fn: clickFHPath, evt: 'click', key: ['Q', true]},
 					{sel:'#tool_line', fn: clickLine, evt: 'click', key: ['L', true]},
 					{sel:'#tool_rect', fn: clickRect, evt: 'mouseup', key: ['R', true], parent: '#tools_rect', icon: 'rect'},
