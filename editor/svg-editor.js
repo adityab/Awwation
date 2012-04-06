@@ -35,7 +35,7 @@
 			// changed in the UI and are stored in the browser, config can not
 			
 			curConfig = {
-				canvas_expansion: 3,
+				canvas_expansion: 1,
 				dimensions: [4000,4000],
 				initFill: {
 					color: 'none',  // transparent fill
