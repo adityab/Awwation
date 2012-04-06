@@ -38,13 +38,13 @@
 				canvas_expansion: 3,
 				dimensions: [4000,4000],
 				initFill: {
-					color: 'FF0000',  // solid red
+					color: 'none',  // transparent fill
 					opacity: 1
 				},
 				initStroke: {
 					width: 5,
-					color: '000000',  // solid black
-					opacity: 1
+					color: '007FFF',  // transparent blue stroke
+					opacity: 0.8
 				},
 				initOpacity: 1,
 				imgPath: 'images/',
