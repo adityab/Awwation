@@ -70,44 +70,16 @@
             </a>
            <ul class = "nav">
                 <li class = "btn-group" data-toggle = "buttons-radio">
-                        <button class = "btn" id = "tool_select"></button>
+                        <button class = "btn active" id = "tool_select"></button>
                         <button class = "btn" id = "tool_pan"><img width = "24" height = "24" src = "images/pan.png"></img></button>
-                </li>
-                
-                <li class = "btn-group" data-toggle = "buttons-radio">
-                        <button class = "btn" id = "tool_text"></button>
+                        <button class = "btn" id = "tool_fhpath"></button>
+                        <button class = "btn" id = "tool_line"></button>
                         <button class = "btn" id = "tool_rect"></button>
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                        </button>
-                        <ul class = "dropdown-menu">
-                            <li> <a href = "#" id = "tool_fhpath">Freehand</a> </li>
-                            <li> <a href = "#" id = "tool_line">Line</a> </li>
-                            <li> <a href = "#" id = "tool_rect">Rectangle</a> </li>
-                            <li> <a href = "#" id = "tool_ellipse">Ellipse</a> </li>
-                            <li> <a href = "#" id = "tool_path">Path</a> </li>
-                        </ul>
+                        <button class = "btn" id = "tool_ellipse"></button>
+                        <button class = "btn" id = "tool_path"></button>
+                        <button class = "btn" id = "tool_text"></button>
+                        <button class = "btn" id = "tool_image"></button>
                 </li>
-                <li class = "btn-group" data-toggle = "buttons-radio">
-                    <button class = "btn" id = "tool_image"></button>
-                    <button class = "btn" id = "tool_video">Video</button>
-                </li>
-                
-                <!--li class = "dropdown">
-                    <a class = "dropdown-toggle" data-toggle = "dropdown" href = "#">
-                        Shapes
-                        <b class = "caret"></b>
-                    </a>
-                    <ul class = "dropdown-menu">
-                        <li> <a href = "#" id = "tool_fhpath">Freehand</a> </li>
-                        <li> <a href = "#" id = "tool_line">Line</a> </li>
-                        <li> <a href = "#" id = "tool_rect">Rectangle</a> </li>
-                        <li> <a href = "#" id = "tool_ellipse">Ellipse</a> </li>
-                        <li> <a href = "#" id = "tool_path">Path</a> </li>
-                        <li> <a href = "#" id = "tool_text">Text</a> </li>
-                        <li> <a href = "#" id = "tool_image">Image</a> </li>
-                    </ul>
-                </li-->
            </ul>
         </div>
     </div>
@@ -499,12 +471,6 @@
 	<div class="tool_button" id="tool_select" title="Select Tool"></div>
 	<div class="tool_button" id="tool_fhpath" title="Pencil Tool"></div>
 	<div class="tool_button" id="tool_line" title="Line Tool"></div>
-	<div class="tool_button flyout_current" id="tools_rect_show" title="Square/Rect Tool">
-		<div class="flyout_arrow_horiz"></div>
-	</div>
-	<div class="tool_button flyout_current" id="tools_ellipse_show" title="Ellipse/Circle Tool">
-		<div class="flyout_arrow_horiz"></div>
-	</div>
 	<div class="tool_button" id="tool_path" title="Path Tool"></div>
 	<div class="tool_button" id="tool_text" title="Text Tool"></div>
 	<div class="tool_button" id="tool_image" title="Image Tool"></div>
