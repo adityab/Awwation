@@ -517,6 +517,9 @@ html, body, div{
 	padding-left: 2px;
 	background: #D0D0D0;
 	z-index: 4;
+    -webkit-box-shadow: 1px 0px 5px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    1px 0px 5px rgba(50, 50, 50, 0.75);
+    box-shadow:         1px 0px 5px rgba(50, 50, 50, 0.75);
 }
 
 #workarea.wireframe #svgcontent * {
