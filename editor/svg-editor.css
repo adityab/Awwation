@@ -508,6 +508,17 @@ html, body, div{
 	z-index: 4;
 }
 
+#svg_editor #bar_left {
+	position: absolute;
+	border-right: none;
+	width: 150px;
+	height: 100%;
+	left: 0;
+	padding-left: 2px;
+	background: #D0D0D0;
+	z-index: 4;
+}
+
 #workarea.wireframe #svgcontent * {
 	fill: none;
 	stroke: #000;
