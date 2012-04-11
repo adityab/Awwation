@@ -1,8 +1,3 @@
-<html>
-    <head>
-        <title>Awwation</title>
-        <link rel="stylesheet" type="text/css" href="awwation.css"></link>
-        <style>
             @import url(http://fonts.googleapis.com/css?family=Mystery+Quest);
             @import url(http://fonts.googleapis.com/css?family=Imprima);
 
@@ -111,41 +106,3 @@
                 margin-left: 10%;
                 margin-right: 10%;
             }
-        </style>
-    </head>
-    
-    <body>
-        <div id = "banner">
-            <h1>Awwation</h1>
-            <h2>create <strong>Zooming</strong> presentations!</h2>
-            <p>Awwation is an app for creating Prezi-like presentations in HTML5, so they can run in modern web browsers without Flash. This is</p>
-            <p>It is currently in <strong>alpha</strong>, and the editor works only in Chrome. Presentations can be viewed in the latest versions of Chrome, Firefox, and IE.</p>
-        </div>
-
-        <div id = "content">
-            <h2>Make your presentations Awesome.</h2>
-            <iframe id = "presentation" src = "http://dl.dropbox.com/u/40496552/awwation-intro.svg"></iframe>
-            <div id = "information">
-                <div class = "list">
-                    <h3>Features</h3>
-                    <ul>
-                        <li><strong>Simultaneous</strong> Zooming and Rotations</li>
-                        <li>Runs completely in the <strong>browser</strong></li>
-                        <li>Embed <strong>images</strong></li>
-                        <li>Supports <strong>WebFonts</strong></li>
-                        <li><strong>Themes</strong> collection</li>
-                        <li>Open-Source!</li>
-                    </ul>
-                </div>
-                <div class = "list">
-                    <h3>Coming Soon!</h3>
-                    <ul>
-                        <li><strong>Video</strong> embedding</li>
-                        <li><strong>Math</strong> support using the LaTeX syntax</li>
-                        <li>Support for more browsers!</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
