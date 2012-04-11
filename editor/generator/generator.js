@@ -2,9 +2,13 @@ makePresentation = function(sequence) {
     
     // Import DOM
     var src = svgCanvas.getSvgString();
+    // convert uppercase STYLE tag to lowercase
+    src = src.replace(/STYLE/g, 'style');
+    console.log(src);
+
     var parser = new DOMParser();
     var doc = parser.parseFromString(src, "text/xml");
-
+    
     /*
     // Make it ready for dizzy.js
 
@@ -41,7 +45,7 @@ makePresentation = function(sequence) {
     
     var root = doc.getElementsByTagName('svg')[0];
     root.setAttribute('xmlns:ns1','http://sozi.baierouge.fr');
-    
+
     var scriptElement = doc.createElement('script');
     scriptElement.setAttribute('ns1:version', '11.01');
     scriptElement.setAttribute('id', 'sozi-script');

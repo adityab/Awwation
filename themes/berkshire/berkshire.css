@@ -1,0 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Berkshire+Swash);
+
+text {
+    font-family: 'Berkshire Swash', cursive;
+    text-shadow: 0px 0px 8px rgba(150, 150, 150, 1);
+}
+
+rect {
+    stroke: #AEAEFF;
+}
+
+ellipse {
+    stroke: #FF0000;
+}

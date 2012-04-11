@@ -631,7 +631,7 @@ span.zoom_tool {
 	margin-top: 5px;
 }
 
-.dropdown {
+/*.dropdown {
 	position: relative;
 }
 
@@ -692,7 +692,7 @@ span.zoom_tool {
 .dropdown li.special:hover {
 	background: #FFC;
 }
-
+*/
 #font_family_dropdown-list li {
 	font-size: 1.4em;
 }

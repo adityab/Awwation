@@ -1,0 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Oleo+Script:400,700);
+
+text {
+    font-family: 'Oleo Script';
+}
+
+rect {
+    stroke: #FF0000;
+}
+
+ellipse {
+    stroke: #00FF00;
+}
