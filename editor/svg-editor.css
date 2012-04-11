@@ -1442,3 +1442,7 @@ span.zoom_tool {
     bottom: 0;
     overflow: hidden;
 }
+
+.dropdown-menu > a:hover {
+    background-color: #AAAAAA;
+}
