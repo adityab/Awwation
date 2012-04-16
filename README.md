@@ -1,4 +1,4 @@
-## Awwation
+# Awwation
 
 A web app for creating zooming presentations, similar to Prezi, but in HTML5.
 
