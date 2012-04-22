@@ -49,59 +49,56 @@ svgEditor.addExtension("Slides", function() {
         makePresentation(sequence);
     });
     
+    var updateThumb = function(element, thumb) {
+        var svg = thumb.find('svg')[0];
+        var bbox = element.getBBox();
+        svg.setAttribute('viewBox', [bbox.x, bbox.y, bbox.width, bbox.height].join(' '));
+                    
+        var use = thumb.find('use')[0];
+        var transformStr = element.getAttribute('transform');
+        if(transformStr) {
+            newTransformStr = transformStr.replace(/rotate\(-/g,'rotate\(');
+            if(newTransformStr == transformStr)
+                newTransformStr = transformStr.replace(/rotate\(/g,'rotate\(-');
+            transformStr = newTransformStr;
+            use.setAttribute('transform', transformStr);
+         }
+    };
+
+    removeElement = function(el) {
+        el.parentNode.parentNode.removeChild(el.parentNode);
+    }
+
     var addToTimeline = function() {
                         count += 1;
 
-					    var thumbDiv = $('<div>', {
-                            id: currentSelection.id
-                        }).appendTo(strip);
-                        thumbDiv.css({
+                        var thumbDiv = $('<div>', {
+                            id: currentSelection.id,
+                        }).css({
                             'background-color': 'white',
                             'border': '1px solid black'
-                        });
-
-					    var thumb = $('<canvas>', {
-                            style: 'display: none;'
-                        }).appendTo(thumbDiv);
+                        }).appendTo(strip);
                         
-                        var ctx = thumb[0].getContext('2d');
-                        var src = svgCanvas.getSvgString();
-                        var parser = new DOMParser();
-                        var doc = parser.parseFromString(src, "text/xml");
+
                         var bbox = currentSelection.getBBox();
-                        doc.getElementsByTagName("svg")[0].setAttribute('viewBox', bbox.x + ' ' + bbox.y + ' ' + bbox.width + ' ' + bbox.height);
-                        // console.log(doc);
-
-                        canvg(thumb[0], doc, { ignoreMouse: true, ignoreAnimation: true });
-
-    
-                            
-                            var canvasCopy = document.createElement("canvas");
-                            var copyContext = canvasCopy.getContext("2d");
-                                
-                            var ratio = 1;
-    
-                            if(thumb[0].width > thumb[0].height)
-                                ratio = 100 / thumb[0].width;
-                            else 
-                                ratio = 80 / thumb[0].height;
-
-                            canvasCopy.width = thumb[0].width * ratio;
-                            canvasCopy.height = thumb[0].width * ratio;
-                            copyContext.drawImage(thumb[0], 0, 0, thumb[0].width, thumb[0].height, 0, 0, canvasCopy.width, canvasCopy.height);
-
-                            imgData = canvasCopy.toDataURL();
-
-
-                        $("<img src = '" +imgData+"'></img>").appendTo(thumbDiv);
                         
-                        removeElement = function(el) {
-                            el.parentNode.parentNode.removeChild(el.parentNode);
-                        }
+                        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                        svg.setAttribute('style', 'border: 1px solid black; pointer-events: none;');
+                        svg.setAttribute('width', '120');
+                        svg.setAttribute('height', '100');
+                        svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+                        thumbDiv[0].appendChild(svg);
 
-                        $("<span onclick = removeElement(this)><a href = '#'>delete</a></span>").appendTo(thumbDiv);
+                        var use = document.createElementNS("http://www.w3.org/2000/svg", "use"); 
+                        use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#svgcontent");
+                        use.setAttribute('width', '4000');
+                        use.setAttribute('height', '4000');
+                        svg.appendChild(use);
+
+                        updateThumb(currentSelection, thumbDiv);
+
                         
-					}
+	}
 
 		return {
 			name: "Slides",
@@ -133,6 +130,19 @@ svgEditor.addExtension("Slides", function() {
             selectedChanged: function(opts) {
                 currentSelection = null;
                 currentSelection = opts.selectedElement;
+            },
+
+            elementChanged: function(array) {
+                array = array.elems;
+                for(var i = 0; i < array.length; ++i) {
+                    console.log(array[i].id);
+                    var bbox = array[i].getBBox();
+
+                    strip.find('#'+array[i].id).each(function() {
+                        updateThumb(array[i], $(this)); 
+                    });
+
+                }
             }
 
 		};
