@@ -65,9 +65,14 @@ makePresentation = function(sequence) {
         
         root.appendChild(newFrame);
     }
-    
+   
+
     var bb = new BlobBuilder();
-    bb.append((new XMLSerializer()).serializeToString(doc));
-    var blob = bb.getBlob("application/svg+xml;");
-    saveAs(blob, "aww.svg");
+    var svgString = (new XMLSerializer()).serializeToString(doc);
+    bb.append(svgString);
+    var blob = bb.getBlob("application/xml;charset="+doc.characterSet);
+    var oURL = window.URL || window.webkitURL || null;
+    window.open(oURL.createObjectURL(blob));
+    
+   // saveAs(blob, "aww.svg");
 }
