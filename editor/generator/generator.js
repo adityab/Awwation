@@ -39,27 +39,25 @@ makePresentation = function(sequence) {
    
     var svgString = (new XMLSerializer()).serializeToString(doc);
     // Use FileSaver polyfill if we have chrome, else use Downloadify (flash)
-        var bb = new BlobBuilder();
-        bb.append(svgString);
-        var blob = bb.getBlob("application/xml;charset="+doc.characterSet);
-         
         if(svgedit.browser.isChrome()) {
+            var bb = new BlobBuilder();
+            bb.append(svgString);
+            var blob = bb.getBlob("application/xml;charset="+doc.characterSet);
+             
             $.prompt("Save file as:", "Untitled.svg", function(name) {
                 saveAs(blob, name, function(e) { $.alert("Saved to your download folder. Chrome may prompt you to 'Keep' or 'Discard'."); });
             });
         }
-        else 
-            saveAs(blob, '', function(e) { $.alert("Saved to your download folder. Chrome may prompt you to 'Keep' or 'Discard'."); });
     
-/*    else {
-//        if(!window.Downloadify) {
-            $.ajaxSettings.async = false;
-            $.getScript('generator/swfobject.js');
-            $.getScript('generator/downloadify.min.js');
-            $.ajaxSettings.async = true;
-    //    }
-        
-        $.alert('File generated!<br/><div id="sozisavesvg" style="text-align: center;"></div>');
+       else {
+           if(!window.Downloadify) {
+               $.ajaxSettings.async = false;
+               $.getScript('generator/swfobject.js');
+               $.getScript('generator/downloadify.min.js');
+               $.ajaxSettings.async = true;
+           }
+           
+           $.alert('File generated!<br/><div id="sozisavesvg" style="text-align: center;"></div>');
         
         $('#sozisavesvg').downloadify({
             swf    :   'generator/downloadify.swf',
@@ -75,5 +73,5 @@ makePresentation = function(sequence) {
             onError : function(){ alert('You must put something in the File Contents or there will be nothing to save!'); }
         });
     }
-    */
+    
 }
