@@ -12,11 +12,11 @@ makePresentation = function(sequence) {
     root.setAttribute('xmlns:ns1','http://sozi.baierouge.fr');
 
     var scriptElement = doc.createElement('script');
-    scriptElement.setAttribute('ns1:version', '11.01');
+    scriptElement.setAttribute('ns1:version', 'trunk');
     scriptElement.setAttribute('id', 'sozi-script');
 
     // Load script and inject it into a <script> tag
-    objXml = new XMLHttpRequest();
+    var objXml = new XMLHttpRequest();
     objXml.open("GET", "sozi.js", false);
     objXml.send(null);
     scriptElement.textContent = objXml.responseText;
@@ -26,7 +26,7 @@ makePresentation = function(sequence) {
     for(var i = 0; i < sequence.length; i+=1) {
         var newFrame = doc.createElement('ns1:frame');
         newFrame.setAttribute('ns1:transition-profile', 'accelerate-decelerate');
-        newFrame.setAttribute('ns1:transition-duration-ms', '1000');
+        newFrame.setAttribute('ns1:transition-duration-ms', '1500');
         newFrame.setAttribute('ns1:timeout-ms', '1500');
         newFrame.setAttribute('ns1:timeout-enable', 'false');
         newFrame.setAttribute('ns1:hide', 'false');
