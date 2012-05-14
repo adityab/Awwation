@@ -11,13 +11,13 @@ makePresentation = function(sequence) {
     var root = doc.getElementsByTagName('svg')[0];
     root.setAttribute('xmlns:ns1','http://sozi.baierouge.fr');
 
-    var scriptElement = doc.createElement('script');
+    var scriptElement = doc.createElementNS('http://www.w3.org/2000/svg', 'script');
     scriptElement.setAttribute('ns1:version', 'trunk');
     scriptElement.setAttribute('id', 'sozi-script');
 
     // Load script and inject it into a <script> tag
     var objXml = new XMLHttpRequest();
-    objXml.open("GET", "sozi.js", false);
+    objXml.open("GET", "generator/sozi.js", false);
     objXml.send(null);
     scriptElement.textContent = objXml.responseText;
 
@@ -37,13 +37,43 @@ makePresentation = function(sequence) {
         root.appendChild(newFrame);
     }
    
-
-    var bb = new BlobBuilder();
     var svgString = (new XMLSerializer()).serializeToString(doc);
-    bb.append(svgString);
-    var blob = bb.getBlob("application/svg+xml;charset="+doc.characterSet);
-    //var oURL = window.URL || window.webkitURL || null;
-    //window.open(oURL.createObjectURL(blob));
+    // Use FileSaver polyfill if we have chrome, else use Downloadify (flash)
+        var bb = new BlobBuilder();
+        bb.append(svgString);
+        var blob = bb.getBlob("application/xml;charset="+doc.characterSet);
+         
+        if(svgedit.browser.isChrome()) {
+            $.prompt("Save file as:", "Untitled.svg", function(name) {
+                saveAs(blob, name, function(e) { $.alert("Saved to your download folder. Chrome may prompt you to 'Keep' or 'Discard'."); });
+            });
+        }
+        else 
+            saveAs(blob, '', function(e) { $.alert("Saved to your download folder. Chrome may prompt you to 'Keep' or 'Discard'."); });
     
-    saveAs(blob, "aww.svg");
+/*    else {
+//        if(!window.Downloadify) {
+            $.ajaxSettings.async = false;
+            $.getScript('generator/swfobject.js');
+            $.getScript('generator/downloadify.min.js');
+            $.ajaxSettings.async = true;
+    //    }
+        
+        $.alert('File generated!<br/><div id="sozisavesvg" style="text-align: center;"></div>');
+        
+        $('#sozisavesvg').downloadify({
+            swf    :   'generator/downloadify.swf',
+            downloadImage :   'generator/download.png',
+            width    :   100,
+            height  :   30,
+            filename  :   'Untitled.svg',
+            data      :   function(){ return svgString; },
+            dataType  :   'string',
+            append  :  false,
+            onComplete : function(){ alert('Your File Has Been Saved!'); },
+            onCancel   : function(){ alert('You have cancelled the saving of this file.'); },
+            onError : function(){ alert('You must put something in the File Contents or there will be nothing to save!'); }
+        });
+    }
+    */
 }
