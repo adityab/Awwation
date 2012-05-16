@@ -13,12 +13,19 @@ $(function() {
     
     // And when a theme is picked, apply it.
     $('#theme_picker').children().each(function(id, theme) {
-        $('#'+theme.id)[0].innerHTML = "<img src = '../themes/"+theme.id+"/"+theme.id+".png'></img>"
+        // Image preview of each theme in the menu
+        $('#'+theme.id)[0].innerHTML = "<img src = '../themes/" + theme.id + "/" + theme.id + ".png'></img>"
+        
         $('#'+theme.id).click(function() {
-            console.log(theme.id, 'selected');
-            style.innerHTML = "@import url(http://adityab.github.com/Awwation/themes/"+theme.id+"/"+theme.id+".css);";
+            // Load selected theme's CSS file via XHR and inject it into <style> tag
+            var themeXML = new XMLHttpRequest();
+            themeXML.open("GET", "../themes/" + theme.id + "/" + theme.id + ".css", false);
+            themeXML.send(null);
+            style.innerHTML = themeXML.response;
+
         });
     });
     
+    // Apply this theme by default
     $('#berkshire').trigger(jQuery.Event('click'));
 });
