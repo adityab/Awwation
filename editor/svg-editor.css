@@ -1445,3 +1445,29 @@ span.zoom_tool {
 
 .dropdown-menu > a:hover {
 }
+
+#add_to_timeline {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 55px;
+}
+
+#sortable {
+    background-color: #eee;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    height: 70%;
+    overflow: auto;
+}
+
+#generate {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.thumb {
+    border: 1px solid black;
+    pointer-events: none;
+}

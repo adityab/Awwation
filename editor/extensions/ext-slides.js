@@ -12,40 +12,20 @@ svgEditor.addExtension("Slides", function() {
     
     var count = 0;
     
-    var addButton = $("<button class = 'btn btn-primary'>Add selected element to the timeline</button>");
-    addButton.appendTo($("#bar_left"));
+    var addButton = $("#add_to_timeline");
     addButton.click(function() {
         addToTimeline();
     });
-    addButton.css({
-        'margin-left': '5px',
-        'margin-right': '5px',
-        'margin-top': '55px'
+
+    var strip = $("#sortable");
+    strip.sortable({
+        revert: true
     });
 
-    var strip = $("<div id = 'sortable'></div>");
-    strip.css({
-        'background-color': 'grey',
-        'margin-left': '5px',
-        'margin-right': '5px',
-        'margin-top': '5px',
-        'height': '70%',
-        'overflow': 'auto'
-    });
-    strip.appendTo($("#bar_left")); 
-    strip.sortable({ revert: true });
-
-    var generateButton = $("<button class = 'btn btn-danger'>Generate Awwation!</button>");
-    generateButton.appendTo($("#bar_left"));
-    generateButton.css({
-        'margin-left': '5px',
-        'margin-right': '5px',
-        'margin-top': '5px'
-    });
+    var generateButton = $("#generate");
     
     generateButton.click(function() {
         var sequence = strip.sortable('toArray');
-        console.log(sequence);
         makePresentation(sequence);
     });
     
@@ -71,21 +51,22 @@ svgEditor.addExtension("Slides", function() {
 
     var addToTimeline = function() {
                         count += 1;
+                        
 
                         var thumbDiv = $('<div>', {
                             id: currentSelection.id,
+                            class: 'thumbnail'
                         }).css({
                             'background-color': 'white',
-                            'border': '1px solid black'
                         }).appendTo(strip);
                         
 
                         var bbox = currentSelection.getBBox();
                         
                         var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                        svg.setAttribute('style', 'border: 1px solid black; pointer-events: none;');
-                        svg.setAttribute('width', '120');
-                        svg.setAttribute('height', '100');
+                        svg.setAttribute('class', 'thumb');
+                        svg.setAttribute('width', '100');
+                        svg.setAttribute('height', '80');
                         svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
                         thumbDiv[0].appendChild(svg);
 
