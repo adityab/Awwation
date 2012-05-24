@@ -56,8 +56,6 @@ svgEditor.addExtension("Slides", function() {
                         var thumbDiv = $('<div>', {
                             id: currentSelection.id,
                             class: 'thumbnail'
-                        }).css({
-                            'background-color': 'white',
                         }).appendTo(strip);
                         
 
@@ -69,6 +67,7 @@ svgEditor.addExtension("Slides", function() {
                         svg.setAttribute('height', '80');
                         svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
                         thumbDiv[0].appendChild(svg);
+                        
 
                         var use = document.createElementNS("http://www.w3.org/2000/svg", "use"); 
                         use.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", "#svgcontent");
@@ -77,6 +76,13 @@ svgEditor.addExtension("Slides", function() {
                         svg.appendChild(use);
 
                         updateThumb(currentSelection, thumbDiv);
+                        
+                        var closeButton = $('<span>',  {
+                            class: 'closeButton'
+                        }).html("&#10006;").appendTo(thumbDiv);
+                        closeButton.click(function() {
+                            $(this).parent().remove();
+                        });
 
                         
 	}
