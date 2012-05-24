@@ -543,6 +543,10 @@ html, body, div{
 	fill: #FFF !important;
 }
 
+#canvasBackground {
+    opacity: 0.7;
+}
+
 #tools_top div[id$="_panel"]:not(#editor_panel):not(#history_panel) {
 	display: none;
 }
