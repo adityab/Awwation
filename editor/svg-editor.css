@@ -1453,12 +1453,15 @@ span.zoom_tool {
 }
 
 #sortable {
-    background-color: #eee;
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 5px;
     height: 70%;
     overflow: auto;
+    background-color: #eee;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 #generate {
@@ -1469,5 +1472,13 @@ span.zoom_tool {
 
 .thumb {
     border: 1px solid black;
-    pointer-events: none;
+}
+
+#sortable .thumbnail {
+    padding: 2px;
+    cursor: move;
+    margin-bottom: 2px;
+}
+#sortable .thumbnail:hover {
+    border: 1px solid blue;
 }
