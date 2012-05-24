@@ -27,5 +27,5 @@ $(function() {
     });
     
     // Apply this theme by default
-    $('#berkshire').trigger(jQuery.Event('click'));
+    $('#belleza').trigger(jQuery.Event('click'));
 });
